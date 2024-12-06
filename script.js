@@ -20,3 +20,34 @@ document.getElementById("addButton").addEventListener("click", function(){
         alert("Please enter a task")
     }
 });
+
+console.log("new")
+
+const addButton = document.getElementById("addButton");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+addButton.addEventListener("click", function () {
+    const taskText = taskInput.value.trim();
+
+    if (taskText !== "") {
+        const listItem = document.createElement("li");
+
+        const taskContent = document.createElement("span");
+        taskContent.textContent = taskText;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", function () {
+            taskList.removeChild(listItem);
+        });
+
+        listItem.appendChild(taskContent);
+        listItem.appendChild(deleteButton);
+        taskList.appendChild(listItem);
+
+    } else {
+        alert("Please enter a task.");
+    }
+});
