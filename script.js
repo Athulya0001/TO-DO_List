@@ -1,26 +1,3 @@
-document.getElementById("addButton").addEventListener("click", function(){
-    let taskInput = document.getElementById("taskInput");
-    let taskValue = taskInput.value.trim();
-    if (taskValue!==""){
-        let li= document.createElement("li");
-        li.textContent=taskValue;
-
-        let deleteButton=document.createElement("button");
-        deleteButton.textContent="Delete";
-        deleteButton.classList.add("deleteBtn");
-        deleteButton.addEventListener("click", function(){
-            li.remove();
-        });
-
-        li.appendChild(deleteButton);
-        document.getElementById("taskList").appendChild(li);
-
-        taskInput.value="";
-    }else{
-        alert("Please enter a task")
-    }
-});
-
 console.log("new")
 
 const addButton = document.getElementById("addButton");
@@ -36,18 +13,21 @@ addButton.addEventListener("click", function () {
         const taskContent = document.createElement("span");
         taskContent.textContent = taskText;
 
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
+        const dltButton = document.createElement("button");
+        dltButton.textContent = "Delete";
 
-        deleteButton.addEventListener("click", function () {
+        dltButton.addEventListener("click", function () {
             taskList.removeChild(listItem);
         });
 
         listItem.appendChild(taskContent);
-        listItem.appendChild(deleteButton);
+        listItem.appendChild(dltButton);
         taskList.appendChild(listItem);
 
-    } else {
-        alert("Please enter a task.");
-    }
+        
+
+    } 
+    // else {
+    //     alert("Please enter a task.");
+    // }
 });
